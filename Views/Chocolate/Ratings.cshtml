@@ -1,0 +1,106 @@
+﻿@model TermProject.Models.Feedback
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ratings</title>
+</head>
+<body style="background-image:url('../Content/Add/2.jpg');background-repeat:no-repeat;color:silver">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <br />
+                <br />
+                <br />
+                <br />
+
+                <form name="sentMessage" id="contactForm" method="post" action="/Chocolate/Ratings">
+                  <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Chocolate</label>
+                            <select name="Chocolate" class="form-control">
+                                <option>Dairy Milk</option>
+                                <option>Hersheys</option>
+                                <option>Mars</option>
+                                <option>Twix</option>
+                                <option>Galaxy</option>
+                                <option>Raffaello</option>
+                                <option>Toblerone</option>
+                                <option>Snickers</option>
+                                <option>Godiva</option>
+                                <option>Milky Bar</option>
+                                <option>Bounty</option>
+                                <option>BournVille</option>
+                                <option>Kit Kat</option>
+                                <option>Chomp</option>
+                                <option>Caramilk</option>
+                                <option>Cherry Ripe</option>
+                                <option>Nut Lovers</option>
+                                <option>Rally Bar</option>
+                                <option>Zero Bar</option>
+                                <option>Wonka</option>
+                                <option>Yorkie</option>
+                                <option>Ghirardelli</option>
+                                <option>Lindt & Sprungli</option>
+                                <option>Flake</option>
+                            </select>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" name="Email" placeholder="Email Address" id="email" required />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            @Html.LabelFor(x => x.Comment, htmlAttributes: new { @class = "control-label" })
+                            @Html.HiddenFor(x => x.Id)
+                            @Html.TextAreaFor(x => x.Comment, htmlAttributes: new
+                        {
+                            @rows = "5",
+                            @class = "form-control",
+                            @placeholder = "Comments",
+                            @required = "required"
+                        })
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Rating</label>
+                            <select name="Rating" class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <input type="submit" class="btn btn-default" value="Send" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <script src="~/Content/clean-blog.min.js"></script>
+</body>
+</html>

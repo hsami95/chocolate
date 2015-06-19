@@ -1,0 +1,143 @@
+﻿@using TermProject.Models;
+@model List<Chocolate>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ChocolateGallery</title>
+</head>
+<body style="background-image:url('../Content/chocolates/back.jpg');background-repeat:repeat-y">
+    <div class="container">
+        <br />
+        <br />
+        <div class="row" style="padding-bottom:20px">
+           
+                <div class="col-md-3">
+                    <select id="Choco" name="Chocolate" class="form-control">
+                        <option>Dairy Milk</option>
+                        <option>Hersheys</option>
+                        <option>Mars</option>
+                        <option>Twix</option>
+                        <option>Galaxy</option>
+                        <option>Raffaello</option>
+                        <option>Toblerone</option>
+                        <option>Snickers</option>
+                        <option>Godiva</option>
+                        <option>Milky Bar</option>
+                        <option>Bounty</option>
+                        <option>BournVille</option>
+                        <option>Caramilk</option>
+                        <option>Double Decker</option>
+                        <option>Chomp</option>
+                        <option>Cherry Ripe</option>
+                        <option>Ferrero Rocher</option>
+                        <option>Flake</option>
+                        <option>Kit Kat</option>
+                        <option>Nut Lovers</option>
+                        <option>Rally bar</option>
+                        <option>Take 5</option>
+                        <option>Violet Crumble</option>
+                        <option>Rally bar</option>
+                        <option>Wonka</option>
+                        <option>Yorkie</option>
+                        <option>Zero Bar</option>
+                        <option>Lindt & Sprungli</option>
+                        <option>Ghirardelli</option>
+                        <option>S'mores</option>
+                        <option>White Knight</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select id="Category" name="Category" class="form-control">
+                        <option>Mars</option>
+                        <option>Hershey</option>
+                        <option>Cadbury</option>
+                        <option>Nestle</option>
+                        <option>Godiva</option>
+                        <option>Raffaello</option>
+                        <option>Lindt & Sprungli</option>
+                        <option>Ghirardelli</option>
+                        <option>Ferrero Rocher</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select id="Price" name="Price" class="form-control">
+                        <option value="1">$100-500</option>
+                        <option value="2">$600-1000</option>
+                        <option value="3">$1100-1500</option>
+                        <option value="4">$1600-2000</option>
+                        <option value="5">$2100-2500</option>
+                        <option value="6">$2600-3000</option>
+                        <option value="7">$3100-3500</option>
+                        <option value="8">$3600-4000</option>
+                    </select>
+                </div>
+                <input id="search" type="submit" value="Search" class="btn btn-info" />
+          
+        </div>
+        <div id="div1" class="row">
+            @foreach (Chocolate c in Model)
+            {
+                <div class="col-lg-5">
+                    <div class="col-md-6">
+
+                        <img class="img-thumbnail img-responsive" src="~/Content/Add/@c.Path" height="600" width="600" />
+                    </div>
+                    <div class="col-md-6" style="font-family:Broadway;color:silver">
+                        <p class="lead">Chocolate: @c.Name </p>
+                        <p class="lead">Price:$ @c.Price </p>
+                        <p class="lead">Brand:@c.Category</p>
+                        <br />
+                        <br />
+                        <br />
+
+                    </div>
+                </div>
+
+            }
+        </div>
+        <div id="div2" class="row">
+
+            <div class="col-lg-5">
+                <div class="col-md-6">
+
+                                   </div>
+                <div id="showdata">
+                    <p id="name"></p>
+                    <p id="price"></p>
+                    <p id="brand"></p>
+                </div>
+            </div>
+    </div>
+        </div>
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <script>
+$(document).ready(function () {
+    $('#div2').hide();
+    $('#search').click(function () {
+        $('#div1').hide();
+        $('#div2').show();
+        var cho = $('#Choco').val();
+        var cat = $('#Category').val();
+        var price = $('#Price').val();
+        $.getJSON("/Chocolate/Search?Chocolate=" + cho + "&Category=" + cat + "&Price=" + price, function (mydata) {
+            $("#div2").empty();
+            $.each(mydata, function (i, data)
+            {
+                $("<div>").attr('class', 'row').appendTo($("<div>").attr('class', 'col-md-4 well').append('<p>'+ data.Name +'</p><br><p>' + data.Price + '</p><br><p>' + data.Category + '</p><br><img class="img-responsive" height="150" width="150" src="/Content/Add/' + data.Path + '"/>').appendTo("#div2"));
+          
+            });
+
+
+        });
+
+    });
+});
+    </script>
+</body>
+</html>

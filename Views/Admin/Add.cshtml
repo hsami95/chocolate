@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model TermProject.Models.Chocolate
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body style="background-image:url('../Content/chocolates/back.jpg');background-repeat:no-repeat;font-family:Broadway;color:maroon">
+    <br /><br /><br /><br /><br />
+    <div style="font-weight:bold;margin-left:10%">
+        @using (Html.BeginForm("AddChocolate", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.LabelFor(m => m.Name)
+             <br /><br />
+            @Html.TextBoxFor(m => m.Name)
+            <br /><br />
+
+            @Html.LabelFor(m => m.Price)
+            <br /><br />
+            @Html.TextBoxFor(m => m.Price)
+            <br/><br/>
+            
+            @Html.LabelFor(m => m.Category)
+            <br /><br />
+            @Html.TextBoxFor(m => m.Category)
+            <br /><br />
+
+            <input type="file" name="file" id="file" />
+            <br /><br />
+
+            <input type="submit" value="Add Chocholate" />
+        }
+    </div>
+</body>
+</html>

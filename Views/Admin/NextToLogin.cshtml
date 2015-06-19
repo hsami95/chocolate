@@ -1,0 +1,53 @@
+﻿@using TermProject.Models;
+@{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        ViewBag.Title = "Contact";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NextToLogin</title>
+</head>
+<body style="background-image:url('../Content/chocolates/back.jpg');background-repeat:no-repeat">
+    <br /><br /><br /><br /><br />
+    <div style="margin-left:5%;font-family:Broadway;font-size:100%;font-size-adjust:inherit;color:white">
+        <table border="1">
+            <tr>
+                <th>NAME</th>
+                <th>PRICE</th>
+                <th>CATEGORY</th>
+                <th>IMAGE</th>
+                <th>ADD</th>
+                <th>UPDATE</th>
+                <th>DELETE</th>
+            </tr>
+            @foreach (Chocolate c in Model)
+            {
+                <tr>
+                         <td>@c.Name</td>
+                         <td>@c.Price</td>
+                         <td>@c.Category</td>
+                         @*<input type="hidden" name="index" value="@c.Id" />*@
+                         <td><img src="~/Content/Add/@c.Path" class="img-thumbnail img-responsive" height="100" width="100" /></td>
+                         <td><a href="@Url.Action("Add","Admin")">Add</a></td>                            
+                         <td>@using (Html.BeginForm("Update", "Admin", FormMethod.Post))
+                                   {
+                                       @Html.Hidden("index",c.Id)
+                         <input type="submit" class="btn-link" value=" Update" />
+                                   } 
+                        </td>
+                        <td>
+                        @using (Html.BeginForm("DeleteChocolate", "Admin", FormMethod.Post))
+                        {
+                            @Html.Hidden("index",c.Id)
+                        <input type="submit" class="btn-link" value="Delete" />
+                        }
+                        </td>
+                    </tr>
+            }
+        </table>
+    </div>
+    <br /><br /><br /><br /><br />
+</body>
+</html>

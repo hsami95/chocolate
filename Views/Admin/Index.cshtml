@@ -1,0 +1,42 @@
+﻿@using TermProject.Models;
+@{
+    Layout = null;
+}
+
+@model List<Chocolate>
+          
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+
+<body style="background-image:url('../Content/chocolates/about.jpg')">
+    <br /><br /><br /><br /><br />
+    <div style="margin-left:5%">
+        <table border="1">
+            <tr>
+                <td><label>NAME</label></td>
+                <td><label>PRICE</label></td>
+                <td><label>CATEGORY</label></td>
+                <td><label>PATH</label></td>
+               
+            </tr>
+            
+            @foreach(Chocolate c in Model)
+            { 
+                <tr>
+                    <td>@c.Name</td>
+
+                    <td>@c.Price</td>
+                    <td>@c.Category</td>
+                    <td><img src="~/Content/Add/@c.Path" class="img-thumbnail img-responsive" height="100" width="100" /></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <br /><br /><br /><br /><br />
+</body>
+</html>

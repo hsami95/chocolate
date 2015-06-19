@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin</title>
+</head>
+<body style="background-image:url('../Content/chocolates/back.jpg');background-repeat:no-repeat">
+    <div>
+        <br /><br /><br /><br /><br />
+        <p style="margin-left:25%;font-family:Broadway;font-size:300%;color:maroon;margin-top:5%">ADMIN LOGIN</p>
+        <form class="navbar-form container-fluid" method="post" action="/Admin/NextToLogin" style="margin-left: 25%;margin-top:2%">
+            <div style="font-weight:bold">
+                <input type="text" class="form-control" name="Name" placeholder="Login Name" style="width:400px" required />
+                <br /><br />
+                <input type="password" class="form-control" name="Password" placeholder="Password" style="width:400px" required />
+                <br /><br /><br />
+                <button type="submit" class="btn btn-success" value="sub"> LOGIN </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title> 
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+
+    
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+   
+    
+    <link rel="stylesheet" type="text/css" href="~/engine1/style.css" />
+    
+    
+      
+    <link rel="stylesheet" type="text/css" href="~/engine1/style.css" />
+    <script type="text/javascript" src="~/engine1/jquery.js"></script>
+  
+    <style>
+        .navbar{
+            background-color:darkred;
+            
+        }
+        body{
+            padding-top:65px;
+        }
+         
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand " href="~/Chocolate/Home" style=" color:whitesmoke; font-size:xx-large;color:lightgray; font-family:'Showcard Gothic';font-weight:bolder"> Choco Walks</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="~/Chocolate/Home" style=" color:gainsboro; font-size:medium; color:lightgray;font-family:'Broadway';font-weight:500" >Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="~/Chocolate/ChocolateGallery" style=" color:gainsboro; color:lightgray;font-size:larger;font-family:'Broadway';font-weight:500">Chocolate Gallery</a>
+                    </li> 
+                    <li>
+                        <a class="page-scroll" href="~/Chocolate/Categories" style=" color:gainsboro; font-size:larger;color:lightgray; font-family:'Broadway';font-weight:500">Categories</a>
+                    </li> 
+                    <li>
+                        <a class="page-scroll" href="~/Chocolate/Contact" style=" color:gainsboro; font-size:larger;color:lightgray; font-family:'Broadway';font-weight:500">Contact Us</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="~/Chocolate/getpage" style=" color:gainsboro; font-size:larger; color:lightgray;font-family:'Broadway';font-weight:500">Ratings</a>
+                    </li>                   
+                    <li>
+                        <a class="page-scroll" href="~/Chocolate/Admin" style=" color:gainsboro; font-size:larger; color:lightgray;font-family:'Broadway';font-weight:500">Login</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    
+    
+           
+                
+    
+    @RenderBody()
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+   
+    
+    </body>
+</html>

@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model TermProject.Models.Chocolate
+<!DOCTYPE html> 
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body style="background-image:url('../Content/chocolates/back.jpg');background-repeat:no-repeat">
+    <div style="font-weight:bold;margin-left:10%;color:maroon;font-family:Broadway">
+        <br /><br /><br /><br /><br />
+        @using (Html.BeginForm("UpdateChocolate", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(m => m.Id)
+            <br /><br />
+
+            @Html.LabelFor(m => m.Name)
+            <br /><br />
+            @Html.EditorFor(m => m.Name)
+            <br /><br />
+            
+            @Html.LabelFor(m => m.Category)
+            <br /><br />
+            @Html.EditorFor(m => m.Category)
+            <br /><br />
+
+
+            @Html.LabelFor(m => m.Price)
+            <br /><br />
+            @Html.EditorFor(m => m.Price)
+            <br /><br />    
+            
+            @Html.HiddenFor(m => m.Path)
+            <br/>       
+          
+            <input type="submit" value="Update Chocolate " />
+        }
+    </div>
+</body>
+</html>
